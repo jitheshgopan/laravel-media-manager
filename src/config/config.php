@@ -14,14 +14,6 @@ return array(
 
 	'requestType' => 'post',
 	
-	'customData' => array(
-		'_token' => csrf_token()
-	) ,
-	
-	'customHeaders' => array(
-		'X-CSRF-Token' => csrf_token()
-	) ,
-
 	'accessControl' => 'W3G\MediaManager\MediaManager::accessControl',
 
 	'roots' => null,
