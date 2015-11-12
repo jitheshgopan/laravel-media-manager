@@ -18,11 +18,18 @@ class MediaManagerServiceProvider extends ServiceProvider {
 	 * @return void
 	 */
 	public function boot() {
-		//$this->package('ahmadazimi/laravel-media-manager');
-		$configPath =   __DIR__ . '/../../config/config.php';
-	        $this->publishes([
-	            $configPath => config_path('laravel-media-manager.php')
-	        ]);
+        $configPath =   __DIR__ . '/../../config';
+        $this->publishes([
+            $configPath => config_path('laravel-media-manager')
+        ], 'config');
+
+        $this->publishes([
+            __DIR__.'/../../../public' => public_path('packages/ahmadazimi/laravel-media-manager'),
+        ], 'public');
+
+        $this->publishes([
+            __DIR__ . '/../../views' => base_path('resources/views/vendor/laravel-media-manager'),
+        ], 'views');
 	}
 
 	/**
