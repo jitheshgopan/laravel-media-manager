@@ -18,9 +18,9 @@ class MediaManagerServiceProvider extends ServiceProvider {
 	 * @return void
 	 */
 	public function boot() {
-        $configPath =   __DIR__ . '/../../config';
+        $configPath =   __DIR__ . '/../../config/config.php';
         $this->publishes([
-            $configPath => config_path('laravel-media-manager')
+            $configPath => config_path('laravel-media-manager.php')
         ], 'config');
 
         $this->publishes([
