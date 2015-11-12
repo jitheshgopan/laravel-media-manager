@@ -38,14 +38,7 @@ class MediaManagerServiceProvider extends ServiceProvider {
 	 * @return void
 	 */
 	public function register() {
-		$this->app['command.mediamanager.publish'] = $this->app->share(function ($app) {
-			//Make sure the asset publisher is registered.
-			$app->register('Illuminate\Foundation\Providers\PublisherServiceProvider');
-			
-			return new Console\PublishCommand($app['asset.publisher']);
-		});
 
-		$this->commands('command.mediamanager.publish');
 	}
 
 	/**
