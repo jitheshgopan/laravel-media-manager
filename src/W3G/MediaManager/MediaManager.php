@@ -54,6 +54,20 @@ class MediaManager {
         'bind',
         'debug',
         'accessControl',
+        'uploadAllow',
+        'uploadOrder',
+        'mimeDetect',
+        'disabled',
+        'uploadMaxSize'
+    );
+
+    private static $rootConfigNames = array(
+        'accessControl',
+        'uploadAllow',
+        'uploadOrder',
+        'mimeDetect',
+        'disabled',
+        'uploadMaxSize'
     );
 
     public static function accessControl($attr, $path, $data, $volume) {
@@ -126,10 +140,11 @@ class MediaManager {
                 'URL' => $url
             );
 
-            if(isset($config['accessControl'])) {
-                $root['accessControl'] = array_pull($config, 'accessControl');
+            foreach (self::$rootConfigNames as $rootConfigName) {
+                if(isset($config[$rootConfigName])) {
+                    $root[$rootConfigName] = array_pull($config, $rootConfigName);
+                }
             }
-
             $config['roots'] = array($root);
         }
 
