@@ -58,7 +58,8 @@ class MediaManager {
         'uploadOrder',
         'mimeDetect',
         'disabled',
-        'uploadMaxSize'
+        'uploadMaxSize',
+        'uploadDeny'
     );
 
     private static $rootConfigNames = array(
@@ -67,7 +68,8 @@ class MediaManager {
         'uploadOrder',
         'mimeDetect',
         'disabled',
-        'uploadMaxSize'
+        'uploadMaxSize',
+        'uploadDeny'
     );
 
     public static function accessControl($attr, $path, $data, $volume) {
